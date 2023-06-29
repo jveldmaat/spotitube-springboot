@@ -2,6 +2,9 @@ package nl.han.dea.onderzoek.spotitubespringboot.core.services.crud;
 
 import nl.han.dea.onderzoek.spotitubespringboot.core.services.models.LoginResponseDTO;
 import nl.han.dea.onderzoek.spotitubespringboot.core.services.models.UserDTO;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -9,9 +12,11 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+@Component
 public class UserDAO{
     private Logger logger = Logger.getLogger(getClass().getName());
 
+    @Autowired
     private ICrudResource.DatabaseProperties databaseProperties;
 
 
@@ -47,7 +52,6 @@ public class UserDAO{
 
         } catch(SQLException e){
             e.printStackTrace();
-            System.out.println("HAHA LOSER");
         }
         return login;
     }
